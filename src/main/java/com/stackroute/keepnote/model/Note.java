@@ -2,6 +2,9 @@ package com.stackroute.keepnote.model;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /*
  * The class "Note" will be acting as the data model for the note Table in the database. Please
  * note that this class is annotated with @Entity annotation. Hibernate will scan all package for 
@@ -9,53 +12,61 @@ import java.time.LocalDateTime;
  * process of looking through that particular Java object to recreate it as a table in your database.
  */
 
+@Entity
 public class Note {
 
+	@Id
+	private Integer noteId;
+	private String noteTitle;
+	private String noteContent;
+	private String noteStatus;
+	private LocalDateTime createdAt;
+
 	public Note() {
-
 	}
-
-	public Note(int i, String string, String string2, String string3, LocalDateTime localDate) {
+	public Note(Integer noteId, String noteTitle, String noteContent, String noteStatus, LocalDateTime createdAt) {
+		super();
+		this.noteId = noteId;
+		this.noteTitle = noteTitle;
+		this.noteContent = noteContent;
+		this.noteStatus = noteStatus;
+		this.createdAt = createdAt;
 	}
-
-	public int getNoteId() {
-
-		return 0;
+	public Integer getNoteId() {
+		return noteId;
+	}
+	public void setNoteId(Integer noteId) {
+		this.noteId = noteId;
 	}
 
 	public String getNoteTitle() {
-
-		return null;
+		return noteTitle;
 	}
-
+	public void setNoteTitle(String noteTitle) {
+		this.noteTitle = noteTitle;
+	}
 	public String getNoteContent() {
-
-		return null;
+		return noteContent;
 	}
-
+	public void setNoteContent(String noteContent) {
+		this.noteContent = noteContent;
+	}
 	public String getNoteStatus() {
-
-		return null;
+		return noteStatus;
 	}
-
-	public void setNoteId(int parseInt) {
-
+	public void setNoteStatus(String noteStatus) {
+		this.noteStatus = noteStatus;
 	}
-
-	public void setNoteTitle(String parameter) {
-
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
 	}
-
-	public void setNoteContent(String parameter) {
-
+	public void setCreatedAt(LocalDateTime localdatetime) {
+		this.createdAt = localdatetime;
 	}
-
-	public void setNoteStatus(String parameter) {
-
+	/* Override the toString() method */
+	@Override
+	public String toString() {
+		return "Note [noteId=" + noteId + ", noteTitle=" + noteTitle + ", noteContent=" + noteContent + ", noteStatus="
+				+ noteStatus + ", createdAt=" + createdAt + "]";
 	}
-
-	public void setCreatedAt(LocalDateTime now) {
-
-	}
-
 }

@@ -55,7 +55,6 @@ public class NoteController {
 		modelMap.addAttribute("noteList", nodeDaoImpl.getAllNotes());
 		return "index";
 	}
-
 	/*
 	 * Define a handler method which will read the NoteTitle, NoteContent,
 	 * NoteStatus from request parameters and save the note in note table in
@@ -69,7 +68,7 @@ public class NoteController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String saveNote(ModelMap modelMap, @ModelAttribute("note") Note note) {
 
-		if(null == note || null == note.getNoteId()) {
+		if(note.getNoteContent().isEmpty() || note.getNoteStatus().isEmpty() || note.getNoteTitle().isEmpty()) {
 			modelMap.addAttribute("errorMessage", "Fields should not be empty");
 			return "index";
 		}

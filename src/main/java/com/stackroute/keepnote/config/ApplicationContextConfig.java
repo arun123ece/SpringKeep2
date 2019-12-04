@@ -35,7 +35,7 @@ public class ApplicationContextConfig {
 	 * name 2. Database URL 3. UserName 4. Password
 	 */
 	@Bean
-	@Autowired
+	@Autowired	
 	public DataSource getDataSource() {
 
 		BasicDataSource dataSource = new BasicDataSource();

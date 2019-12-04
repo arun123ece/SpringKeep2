@@ -26,7 +26,6 @@ import com.stackroute.keepnote.model.Note;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("com.stackroute.keepnote")
 public class ApplicationContextConfig {
 
 	/*
